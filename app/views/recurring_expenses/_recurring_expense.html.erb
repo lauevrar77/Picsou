@@ -1,0 +1,22 @@
+<div id="<%= dom_id recurring_expense %>">
+  <p>
+    <strong>Nom:</strong>
+    <%= recurring_expense.name %>
+  </p>
+
+  <p>
+    <strong>Occurence suivante</strong>
+    <%= recurring_expense.next_occurence %>
+  </p>
+
+  <p>
+    <strong>Coût</strong>
+    <%= recurring_expense.amount %>€
+  </p>
+
+  <p>
+    <strong>Périodicité:</strong>
+    <%= recurring_expense.periodicity %>
+  </p>
+
+</div>

@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: recurring_expenses
+#
+#  id          :integer          not null, primary key
+#  amount      :decimal(, )
+#  begin_date  :date
+#  name        :string
+#  periodicity :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  name: MyString
+  begin_date: 2024-10-02
+  periodicity: MyString
+
+two:
+  name: MyString
+  begin_date: 2024-10-02
+  periodicity: MyString

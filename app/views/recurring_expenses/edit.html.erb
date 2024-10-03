@@ -1,0 +1,12 @@
+<% content_for :title, "Editing recurring expense" %>
+
+<h1>Editing recurring expense</h1>
+
+<%= render "form", recurring_expense: @recurring_expense %>
+
+<br>
+
+<div>
+  <%= link_to "Show this recurring expense", @recurring_expense %> |
+  <%= link_to "Back to recurring expenses", recurring_expenses_path %>
+</div>

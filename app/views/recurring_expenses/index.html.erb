@@ -1,0 +1,43 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Dépenses prévues" %>
+
+<div class="container">
+  <h1 class="title">Dépenses prévues</h1>
+
+  <div id="recurring_expenses">
+    <section class="section">
+      <p><strong>Total</strong>: <%= @total %>€</p>
+      <p><strong>Total par mois</strong></p>
+      <ol>
+      <% @total_by_month.each do |month, total| %>
+        <li><%= month %> : <%= total %></li>
+      <% end %>
+      </ol>
+    </section>
+    <section>
+      <table class="table is-striped">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Date</th>
+            <th>Montant</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @recurring_expenses.each do |recurring_expense| %>
+            <tr>
+              <td><%= recurring_expense.name %></td>
+              <td><%= recurring_expense.next_occurence %></td>
+              <td><%= recurring_expense.amount %>€</td>
+              <td><%= link_to "Afficher", recurring_expense %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
+
+<%= link_to "Prévoir une dépense", new_recurring_expense_path %>
