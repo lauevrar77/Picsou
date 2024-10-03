@@ -11,6 +11,9 @@
 #  updated_at  :datetime         not null
 #
 class RecurringExpense < ApplicationRecord
+  has_many :person_recurring_expenses
+  has_many :persons, through: :person_recurring_expenses
+
   def next_occurence
     return begin_date if periodicity == 'never'
 

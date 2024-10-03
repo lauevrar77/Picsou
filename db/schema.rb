@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_02_191407) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_03_173747) do
+  create_table "people", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "person_recurring_expenses", force: :cascade do |t|
+    t.integer "recurring_expense_id", null: false
+    t.integer "person_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_person_recurring_expenses_on_person_id"
+    t.index ["recurring_expense_id"], name: "index_person_recurring_expenses_on_recurring_expense_id"
+  end
+
   create_table "recurring_expenses", force: :cascade do |t|
     t.string "name"
     t.date "begin_date"
@@ -19,4 +34,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_02_191407) do
     t.datetime "updated_at", null: false
     t.decimal "amount"
   end
+
+  add_foreign_key "person_recurring_expenses", "people"
+  add_foreign_key "person_recurring_expenses", "recurring_expenses"
 end
